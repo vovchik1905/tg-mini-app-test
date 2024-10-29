@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Mini App</title>
+</head>
+<body>
+    <h1>Привет! Это мини-приложение в Telegram</h1>
+    <button id="greet-button">Поприветствовать</button>
+    <p id="greeting-text"></p>
+
+    <script>
+        document.getElementById('greet-button').addEventListener('click', function() {
+            document.getElementById('greeting-text').innerText = 'Привет!';
+        });
+    </script>
+</body>
+</html>
